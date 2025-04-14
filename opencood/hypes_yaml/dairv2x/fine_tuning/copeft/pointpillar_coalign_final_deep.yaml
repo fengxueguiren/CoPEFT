@@ -1,0 +1,29 @@
+name: dairv2x_point_pillar_lidar_coalign_fine_tuning_copeft_final_deep
+
+fine_tuning_setting:
+  fine_tuning_flag: True
+  fine_tuning_mode: "copeft"
+
+  args: 
+    dataset_args:
+      dataset_name: 'dairv2x'
+      data_dir: "/data/dataset/DAIR-V2X/cooperative-vehicle-infrastructure"
+      root_dir: "/data/dataset/DAIR-V2X/cooperative-vehicle-infrastructure/train.json"
+      validate_dir: "/data/dataset/DAIR-V2X/cooperative-vehicle-infrastructure/val.json"
+      test_dir: "/data/dataset/DAIR-V2X/cooperative-vehicle-infrastructure/val.json"
+    fine_tuning_args:
+      ft_core_method: point_pillar_baseline_multiscale_copeft_deep
+      pretrained_model_dir: '/data/code/CoPEFT/opencood/logs/opv2v_pretrain/opv2v_coalign_same_range_100_2024_05_23_17_20_13'
+      layers_to_finetune: ['cls_head', 'reg_head', 'dir_head', 'copeft_vehicle_prompt']
+      lr_times:
+        lr_times_rate: 10
+        layers_to_lr_times: ['copeft_vehicle_prompt']
+      lr: 0.0002
+      lr_scheduler:
+        core_method: multistep #step, multistep and Exponential support
+        gamma: 0.1
+        step_size: [10, 15]
+      train_params:
+        epoches: 20
+        eval_freq: 2
+        save_freq: 2
