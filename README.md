@@ -77,7 +77,7 @@ python opencood/tools/inference.py --model_dir #your_CoEPFT_path
 
 ## Checkpoints
 
-The main checkpoints can be downloaded [here](https://drive.google.com/drive/folders/1v0tIWwfchsRM2tt7f5RmEx1mjH0R6zDw?usp=sharing), and then save them in the `opencood/logs` directory. Note that our checkpoints rely on `spconv=1.2.1`.
+The main checkpoints can be downloaded [here](https://drive.google.com/drive/folders/1RJkj4lLVqjZMxkvy2iiqm2zjfRqFmOGm?usp=drive_link), and then save them in the `opencood/logs` directory. Note that our checkpoints rely on `spconv=1.2.1`.
 
 ## Citation
 ```
